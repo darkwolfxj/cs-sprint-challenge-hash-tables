@@ -1,8 +1,13 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    index = {}
+    result = []
+    for num in a:
+        if abs(num) in index:
+            index[abs(num)] += 1
+            if index[abs(num)] > 1 and abs(num) not in result:
+                result.append(abs(num))
+        else:
+            index[abs(num)] = 1 
 
     return result
 

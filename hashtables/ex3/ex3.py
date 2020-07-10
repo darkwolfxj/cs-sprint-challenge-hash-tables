@@ -1,9 +1,14 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
+    index = {}
+    result = []
+    for arr in arrays:
+        for num in arr:
+            if num in index:
+                index[num] += 1
+                if index[num] == len(arrays):
+                    result.append(num)
+            else:
+                index[num] = 1
     return result
 
 

@@ -3,12 +3,20 @@
 
 
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
-    return result
+    index = {}
+    result = []
+    
+    for route in files:
+        file = route.split("/").pop()
+        if file in index:
+            index[file].append(route)
+        else:
+            index[file] = [route]
+    for query in queries:
+        if query in index:
+            for route in index[query]:
+                result.append(route)
+    return sorted(result, key=lambda x: len(x))
 
 
 if __name__ == "__main__":
